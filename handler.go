@@ -16,15 +16,17 @@ func (m HMAC) ServeHTTP(w http.ResponseWriter, r *http.Request, next caddyhttp.H
 		// nothing to do
 		return next.ServeHTTP(w, r)
 	}
-	body, err := copyRequestBody(r)
+	_, remainingPath, query, err := extractHMACAndPath(r)
 	if err != nil {
 		return err
 	}
 
 	repl := r.Context().Value(caddy.ReplacerCtxKey).(*caddy.Replacer)
 
+	toSign := remainingPath + query
+
 	secret := repl.ReplaceAll(m.Secret, "")
-	signature := generateSignature(m.hasher, secret, body)
+	signature := generateSignature(m.hasher, secret, []byte(toSign))
 	if err != nil {
 		return err
 	}
