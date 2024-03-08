@@ -1,4 +1,4 @@
-[![Go](https://github.com/abiosoft/caddy-hmac/workflows/Go/badge.svg)](https://github.com/abiosoft/caddy-hmac/actions)
+[![Go](https://github.com/yknx4/caddy-hmac/workflows/Go/badge.svg)](https://github.com/yknx4/caddy-hmac/actions)
 
 # caddy-hmac
 
@@ -8,7 +8,7 @@ Caddy v2 hmac middleware
 
 ```
 xcaddy build v2.0.0 \
-    --with github.com/abiosoft/caddy-hmac
+    --with github.com/yknx4/caddy-hmac
 ```
 
 ## Usage
@@ -27,7 +27,7 @@ hmac [<name>] <algorithm> <secret>
 
 #### Example
 
-Run a [command](https://github.com/abiosoft/caddy-exec) after validating a Github webhook secured with a secret.
+Run a [command](https://github.com/yknx4/caddy-exec) after validating a Github webhook secured with a secret.
 
 ```
 @github {
