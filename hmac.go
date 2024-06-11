@@ -52,7 +52,7 @@ func (m *HMAC) Provision(ctx caddy.Context) error {
 		m.hasher = sha1.New
 	case algSha256:
 		m.hasher = sha256.New
-	case alsSha512:
+	case algSha512:
 		m.hasher = sha512.New
 	case algMd5:
 		m.hasher = md5.New
