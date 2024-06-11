@@ -23,6 +23,7 @@ func (h hashAlgorithm) valid() bool {
 const (
 	algSha1   hashAlgorithm = "sha1"
 	algSha256 hashAlgorithm = "sha256"
+	alsSha512 hashAlgorithm = "sha512"
 	algMd5    hashAlgorithm = "md5"
 )
 
