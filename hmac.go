@@ -4,6 +4,7 @@ import (
 	"crypto/md5"
 	"crypto/sha1"
 	"crypto/sha256"
+	"crypto/sha512"
 	"fmt"
 	"hash"
 
@@ -51,6 +52,8 @@ func (m *HMAC) Provision(ctx caddy.Context) error {
 		m.hasher = sha1.New
 	case algSha256:
 		m.hasher = sha256.New
+	case algSha512:
+		m.hasher = sha512.New
 	case algMd5:
 		m.hasher = md5.New
 	}
@@ -77,8 +80,8 @@ func (m HMAC) replacerKey() string {
 }
 
 // UnmarshalCaddyfile implements caddyfile.Unmarshaler.
-//    hmac [<name>] <algorithm> <secret>
 //
+//	hmac [<name>] <algorithm> <secret>
 func (m *HMAC) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {
 	for d.Next() {
 		args := d.RemainingArgs()

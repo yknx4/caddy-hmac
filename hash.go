@@ -12,6 +12,7 @@ func (h hashAlgorithm) valid() bool {
 	switch h {
 	case algSha1:
 	case algSha256:
+	case algSha512:
 	case algMd5:
 	default:
 		return false
@@ -23,6 +24,7 @@ func (h hashAlgorithm) valid() bool {
 const (
 	algSha1   hashAlgorithm = "sha1"
 	algSha256 hashAlgorithm = "sha256"
+	algSha512 hashAlgorithm = "sha512"
 	algMd5    hashAlgorithm = "md5"
 )
 
